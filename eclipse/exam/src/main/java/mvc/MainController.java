@@ -127,6 +127,7 @@ public class MainController extends HttpServlet {
  			 req(request,response,"/mvc/registForm.jsp");
 		 }
 		 else if(action.equals("/insert_course.do")) {
+			 
 			 response.sendRedirect("logOn.do");
 		 }
 	 }
