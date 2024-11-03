@@ -13,6 +13,8 @@ import java.util.List;
 
 import javax.swing.ActionMap;
 
+import com.mysql.cj.xdevapi.Session;
+
 /**
  * Servlet implementation class MainController
  */
@@ -51,12 +53,28 @@ public class MainController extends HttpServlet {
 			 req(request,response,"/mvc/main.jsp");
 		 }
 		 else if(action.equals("/loginCheck.do")) {
-			int flag = studentDAO.getStu(Integer.valueOf(request.getParameter("sid")),request.getParameter("password"));
+			int sid = Integer.valueOf(request.getParameter("sid"));
+			String password = request.getParameter("password");
+			int flag = studentDAO.getStu(sid,password);
 			System.out.println(flag);
 			if (flag == 1) { //로그인 성공 
-				String name =  studentDAO.getName(Integer.valueOf(request.getParameter("sid")),request.getParameter("password"));
 				HttpSession session = request.getSession();
+				session.setAttribute("sid", sid);// 세션부여 
+				session.setAttribute("password", password);// 세션부여 
+				 String name =  studentDAO.getName(Integer.valueOf(request.getParameter("sid")),request.getParameter("password"));
 				session.setAttribute("name", name);// 세션부여 
+				response.sendRedirect("logOn.do");
+				
+			}else {
+				response.sendRedirect("login.do");
+			}
+		 }
+		 else if(action.equals("/logOn.do")) {
+//			 HttpSession session = request.getSession();
+//			
+//			 int sid =Integer.valueOf( (String) session.getAttribute("sid"));
+//			 String password = (String)session.getAttribute("password");
+// 			
 				String sql ="SELECT \n"
 						+ "    course.cid,\n"
 						+ "    course.cname,\n"
@@ -73,11 +91,8 @@ public class MainController extends HttpServlet {
 						+ "    mycourse.sid = ?";
 				List<CourseVO> myCourseList =studentDAO.courseList(1,sql); //고치기 
 				request.setAttribute("myCourseList", myCourseList); //내가 수강중인 과목 
-				request.setAttribute("name", name);
-				req(request,response,"/mvc/logOn.jsp");
-			}else {
-				response.sendRedirect("login.do");
-			}
+				//request.setAttribute("name", name);
+			 req(request,response,"/mvc/logOn.jsp");
 		 }
 		 else if(action.equals("/apply.do")) {
 			 
@@ -110,6 +125,9 @@ public class MainController extends HttpServlet {
 			 
  			 request.setAttribute("courseVO",courseVO);
  			 req(request,response,"/mvc/registForm.jsp");
+		 }
+		 else if(action.equals("/insert_course.do")) {
+			 response.sendRedirect("logOn.do");
 		 }
 	 }
 	 private void req(HttpServletRequest request, HttpServletResponse response,String url) throws ServletException, IOException {
