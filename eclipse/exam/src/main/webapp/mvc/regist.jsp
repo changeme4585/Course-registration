@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>수강하지 않은 과목 리스트</title>
 </head>
 <body>
 	<div align="center">
