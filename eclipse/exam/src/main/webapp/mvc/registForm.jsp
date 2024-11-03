@@ -11,8 +11,14 @@
 <body>
 	<div align="center">
 		<h2>수강 신청 페이지</h2>
-			${courseVO.cid} <br>
-			${courseVO.cname} <br>
+		<form action="" method="post">
+			과목명: ${courseVO.cname} <br><br>
+			학점수: ${courseVO.degree} <br><br>
+			담당교수: ${courseVO.lecturer} <br><br>
+			Time slot: ${courseVO.slot} <br><br>
+			
+			<input type="submit" value="수강신청">
+		</form>	
 	</div>
 	
 </body>

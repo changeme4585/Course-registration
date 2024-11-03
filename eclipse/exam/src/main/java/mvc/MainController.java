@@ -104,7 +104,7 @@ public class MainController extends HttpServlet {
 			
 			 req(request,response,"/mvc/regist.jsp");
 		 }
-		 else if(action.equals("/registForm")) {
+		 else if(action.equals("/registForm.do")) {
 			 int cid = Integer.valueOf(request.getParameter("cid"));
 			 CourseVO courseVO = studentDAO.courseDetail(cid);
 			 
