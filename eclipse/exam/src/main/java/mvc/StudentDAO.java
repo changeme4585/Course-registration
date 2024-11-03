@@ -82,7 +82,7 @@ public class StudentDAO {
 				courseVO.setCname(sql);
 				courseVO.setDegree(cid);
 				courseVO.setLecturer(sql);
-				courseVO.setSlot();
+				courseVO.setSlot(sql);
 			}
 		}catch (Exception e) {
 			// TODO: handle exception
