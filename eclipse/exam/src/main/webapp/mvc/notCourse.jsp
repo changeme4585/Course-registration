@@ -12,9 +12,9 @@
 <table border="1">
 
 	<tr><th>과목명 </th><th>학점 </th><th>time slot </th></tr>
-	<c:forEach var="course" , items="${}">
 	
-	</c:forEach>
+	
+	
 	<tr><td></td></tr>
 </table>
 </body>

@@ -105,9 +105,11 @@ public class MainController extends HttpServlet {
 			 req(request,response,"/mvc/regist.jsp");
 		 }
 		 else if(action.equals("/registForm")) {
-			 int cid =Integer.valueOf(request.getParameter("cid"));
-			 knk
- 			 //request.setAttribute(,);
+			 int cid = Integer.valueOf(request.getParameter("cid"));
+			 CourseVO courseVO = studentDAO.courseDetail(cid);
+			 
+ 			 request.setAttribute("courseVO",courseVO);
+ 			 req(request,response,"/mvc/registForm.jsp");
 		 }
 	 }
 	 private void req(HttpServletRequest request, HttpServletResponse response,String url) throws ServletException, IOException {
