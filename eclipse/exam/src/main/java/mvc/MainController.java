@@ -106,7 +106,7 @@ public class MainController extends HttpServlet {
 		 }
 		 else if(action.equals("/registForm")) {
 			 int cid =Integer.valueOf(request.getParameter("cid"));
-			 hello
+			 knk
  			 //request.setAttribute(,);
 		 }
 	 }

@@ -78,9 +78,13 @@ public class StudentDAO {
 			pstmt.setInt(1, cid);
 			ResultSet rs = pstmt.executeQuery();
 			if (rs.next()) {
-				
+				courseVO.setCid(cid);
+				courseVO.setCname(sql);
+				courseVO.setDegree(cid);
+				courseVO.setLecturer(sql);
+				courseVO.setSlot();
 			}
-			}catch (Exception e) {
+		}catch (Exception e) {
 			// TODO: handle exception
 		}finally {
 			disconnect();
