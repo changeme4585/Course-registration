@@ -127,7 +127,10 @@ public class MainController extends HttpServlet {
  			 req(request,response,"/mvc/registForm.jsp");
 		 }
 		 else if(action.equals("/insert_course.do")) {
-			 
+			 HttpSession session = request.getSession();
+			 int sid = (Integer) session.getAttribute("sid");
+			 int cid = Integer.valueOf(request.getParameter("cid"));
+			 studentDAO.saveCourse(sid, cid);
 			 response.sendRedirect("logOn.do");
 		 }
 	 }
