@@ -60,8 +60,8 @@ public class MainController extends HttpServlet {
 			if (flag == 1) { //로그인 성공 
 				HttpSession session = request.getSession();
 				session.setAttribute("sid", sid);// 세션부여 
-				session.setAttribute("password", password);// 세션부여 
-				 String name =  studentDAO.getName(Integer.valueOf(request.getParameter("sid")),request.getParameter("password"));
+				//session.setAttribute("password", password);// 세션부여 
+				String name =  studentDAO.getName(Integer.valueOf(request.getParameter("sid")),request.getParameter("password"));
 				session.setAttribute("name", name);// 세션부여 
 				response.sendRedirect("logOn.do");
 				

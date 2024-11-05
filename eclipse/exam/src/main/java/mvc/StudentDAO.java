@@ -91,6 +91,22 @@ public class StudentDAO {
 		}
 		return courseVO;
 	}
+	void saveCourse(int sid,int cid) {
+		connect();
+		String sql = "insert into mycourse (sid,cid) values (?,?)";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, sid);
+			pstmt.setInt(2, cid);
+			pstmt.executeUpdate();
+		}catch (Exception e) {
+			// TODO: handle exception
+		}finally {
+			disconnect();
+		}
+			
+		
+	}
 	List<CourseVO> courseList(int sid,String sql){
 		connect();
 		

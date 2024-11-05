@@ -11,7 +11,7 @@
 <body>
 	<div align="center">
 		<h2>수강 신청 페이지</h2>
-		<form action="" method="post">
+		<form action="/exam/main/insert_course.do" method="post">
 			과목명: ${courseVO.cname} <br><br>
 			학점수: ${courseVO.degree} <br><br>
 			담당교수: ${courseVO.lecturer} <br><br>
