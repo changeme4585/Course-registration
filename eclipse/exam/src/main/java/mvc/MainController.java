@@ -139,6 +139,14 @@ public class MainController extends HttpServlet {
  			 request.setAttribute("courseVO",courseVO);
 			 req(request,response,"/mvc/dropForm.jsp");
 		 }
+		 else if (action.equals("/delete_course.do")) {
+			 HttpSession session = request.getSession();
+			 int sid = (Integer) session.getAttribute("sid");
+			 int cid = Integer.valueOf(request.getParameter("cid"));
+			 studentDAO.dropCourse(sid, cid);
+			 response.sendRedirect("logOn.do");
+		 
+		 }
 	 }
 	 private void req(HttpServletRequest request, HttpServletResponse response,String url) throws ServletException, IOException {
 		 RequestDispatcher dispatch = request.getRequestDispatcher(url);
