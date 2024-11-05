@@ -134,7 +134,9 @@ public class MainController extends HttpServlet {
 			 response.sendRedirect("logOn.do");
 		 }
 		 else if(action.equals("/delete.do")) {
-			 request.setAttribute("cid", request.getParameter("cid"));
+			 int cid = Integer.valueOf(request.getParameter("cid"));
+			 CourseVO courseVO = studentDAO.courseDetail(cid);
+ 			 request.setAttribute("courseVO",courseVO);
 			 req(request,response,"/mvc/dropForm.jsp");
 		 }
 	 }
