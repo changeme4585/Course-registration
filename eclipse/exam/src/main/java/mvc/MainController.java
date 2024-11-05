@@ -133,6 +133,9 @@ public class MainController extends HttpServlet {
 			 studentDAO.saveCourse(sid, cid);
 			 response.sendRedirect("logOn.do");
 		 }
+		 else if(action.equals("/delete.do")) {
+			 req(request,response,"/mvc/dropForm.jsp");
+		 }
 	 }
 	 private void req(HttpServletRequest request, HttpServletResponse response,String url) throws ServletException, IOException {
 		 RequestDispatcher dispatch = request.getRequestDispatcher(url);

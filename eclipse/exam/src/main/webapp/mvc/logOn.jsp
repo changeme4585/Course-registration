@@ -18,7 +18,7 @@
  			<tr><th colspan="3" style="text-align: center;">${name}님의 수강과목</th></tr>
  		 <tr><th>과목</th> <th>학점</th> <th>time slot</th></tr>
  		 <c:forEach  var = "myCourse" items = "${myCourseList}">
- 		 <tr> <td><a href= "/exam/main/delete.do">${myCourse.cname}</a></td>
+ 		 <tr> <td><a href= "/exam/main/delete.do?cid=myCourse.cid">${myCourse.cname}</a></td>
 	 		 <td>${myCourse.degree}</td> 
 	 		<td>${myCourse.slot}</td>
  		 </tr>
