@@ -134,6 +134,7 @@ public class MainController extends HttpServlet {
 			 response.sendRedirect("logOn.do");
 		 }
 		 else if(action.equals("/delete.do")) {
+			 request.setAttribute("cid", request.getParameter("cid"));
 			 req(request,response,"/mvc/dropForm.jsp");
 		 }
 	 }
