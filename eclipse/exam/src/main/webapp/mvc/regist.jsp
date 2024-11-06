@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div align="center">
-		<h2>weq</h2>
+		<h2>수강하지 않은 과목 리스트</h2>
 		<table border =1>
 		<tr><th>과목</th> <th>학점</th> <th>time slot</th></tr>
 		<c:forEach  var = "course" items = "${courseList}">
