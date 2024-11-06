@@ -82,7 +82,7 @@ public class MainController extends HttpServlet {
 						+ "    course.lecturer,\n"
 						+ "    course.slot\n"
 						+ "FROM \n"
-						+ "    mycourse\n"
+						+ "    enroll\n"
 						+ "JOIN \n"
 						+ "    course \n"
 						+ "ON \n"

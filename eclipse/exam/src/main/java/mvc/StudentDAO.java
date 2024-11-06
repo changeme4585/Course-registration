@@ -121,7 +121,6 @@ public class StudentDAO {
 	}
 	List<CourseVO> courseList(int sid,String sql){
 		connect();
-		System.out.println("sid: "+sid);
 		List<CourseVO> myCourse = new ArrayList<>();
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -134,7 +133,6 @@ public class StudentDAO {
 				courseVO.setDegree(rs.getInt("degree"));
 				courseVO.setLecturer(rs.getString("lecturer"));
 				courseVO.setSlot(rs.getInt("slot"));
-				System.out.println(courseVO.getCname());
 				myCourse.add(courseVO);
 				
 			}
