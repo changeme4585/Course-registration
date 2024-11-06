@@ -89,7 +89,9 @@ public class MainController extends HttpServlet {
 						+ "    mycourse.cid = course.cid\n"
 						+ "WHERE \n"
 						+ "    mycourse.sid = ?";
-				List<CourseVO> myCourseList =studentDAO.courseList(1,sql); //고치기 
+				HttpSession session = request.getSession();
+				int sid = (Integer) session.getAttribute("sid");
+				List<CourseVO> myCourseList =studentDAO.courseList(sid,sql); //고치기 
 				request.setAttribute("myCourseList", myCourseList); //내가 수강중인 과목 
 				//request.setAttribute("name", name);
 			 req(request,response,"/mvc/logOn.jsp");
@@ -110,8 +112,9 @@ public class MainController extends HttpServlet {
 			 		+ "    course.cid = mycourse.cid AND mycourse.sid = ?\n"
 			 		+ "WHERE \n"
 			 		+ "    mycourse.cid IS NULL;\n";
-			 
-			 List<CourseVO> courseList =studentDAO.courseList(1,sql); //고치기 
+			 HttpSession session = request.getSession();
+				int sid = (Integer) session.getAttribute("sid");
+			 List<CourseVO> courseList =studentDAO.courseList(sid,sql); //고치기 
 			 request.setAttribute("courseList", courseList); // 내가 수강신청하지 않은 과목
 			 for(CourseVO courseVO : courseList) {
 				 System.out.println(courseVO.getCname());
