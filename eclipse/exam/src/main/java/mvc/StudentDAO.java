@@ -93,7 +93,7 @@ public class StudentDAO {
 	}
 	void saveCourse(int sid,int cid) {
 		connect();
-		String sql = "insert into mycourse (sid,cid) values (?,?)";
+		String sql = "insert into enroll (sid,cid) values (?,?)";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, sid);
@@ -107,7 +107,7 @@ public class StudentDAO {
 	}
 	void dropCourse(int sid,int cid) {
 		connect(); 
-		String sql = "delete from mycourse where sid = ? and cid = ?"; 
+		String sql = "delete from enroll where sid = ? and cid = ?"; 
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, sid);
